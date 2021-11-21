@@ -1,0 +1,72 @@
+alias dp='docker ps -a'
+alias remove_exited_containers='docker ps -aq -f "status=exited" | xargs docker rm -f'
+alias ll='ls -la'
+alias ld='ls -ltr | grep drw'
+alias gp='git push'
+alias gs='git status'
+alias gl='git log | head -11'
+alias ys='yarn start'
+alias gf='git add . && git commit -m \"Update\" && git push'
+alias nr='node `ls -1v *.js | tail -1`'
+alias nodrun='nodemon `ls -1v *.js | tail -1`'
+
+## git
+alias gr='git checkout develop && git reset --hard && git pull'
+alias sb='function __sb() { git checkout -b feature/IND-$1; unset -f __sb; }; __sb'
+
+## mvn
+alias qs='mvn clean quarkus:dev'
+alias ss='mvn clean spring-boot:run'
+alias ssp='mvn clean --enable-preview spring-boot:run'
+alias mw='mvn -version'
+alias mvc='mvn org.apache.maven.plugins:maven-archetype-plugin:3.1.2:generate -DarchetypeArtifactId="maven-archetype-quickstart" -DarchetypeGroupId="org.apache.maven.archetypes" -DarchetypeVersion="1.4"'
+
+
+## find alias
+alias fj='function __grep() { echo "Hosgeldin $USER! yolladigin parametre: $1"; grep -r --include "*.java" "$1" .; unset -f __grep; }; __grep'
+alias fs='function __grepScala() { echo "Hosgeldin $USER! yolladigin parametre: $1"; grep -r --include "*.scala" "$1" .; unset -f __grepScala; }; __grepScala'
+alias jf='function __grepJs() { echo "Hosgeldin $USER! yolladigin parametre: $1"; grep -r --include "*.js" "$1" .; unset -f __grepJs; }; __grepJs'
+alias pip=pip3
+alias py=python3
+
+## classics
+alias cdb='cd ..'
+
+## jvm aliases
+alias jdk8='sdk use java 8.0.265.hs-adpt'
+alias jdk11='sdk use java 11.0.9.j9-adpt'
+alias jdk11g2='sdk use java 20.2.0.r11-grl'
+alias jdk11g='sdk use java 21.0.0.r11-grl'
+alias jdk13='sdk use java 13.0.2.j9-adpt'
+alias jdk14='sdk use java 14.0.2.j9-adpt'
+alias jdk15='sdk use java 15.0.0.j9-adpt'
+alias scala3='sdk use scala 3.0.0'
+alias scala213='sdk use scala 2.13.3'
+alias scala212='sdk use scala 2.12.13'
+
+## mvn
+alias mp='mvn clean package'
+alias mt='mvn clean test'
+
+## curl
+alias curld='function __curld() { curl $1 --output $2; unset -f __curld; }; __curld'
+
+## kubernetes
+alias ctx='kubectx'
+alias k='kubectl'
+alias ns='kubens'
+alias kg='function __kg() { kubectl get pods | grep $1; unset -f __kg; }; __kg'
+alias kl='function __kl() { kubectl logs $1 $(basename $(pwd)); unset -f __kl; }; __kl'
+alias kex='function __kg() { kubectl exec -it $1 bash; unset -f __kg; }; __kg'
+alias kexec='function __kg() { kubectl exec -it $1 $2; unset -f __kg; }; __kg'
+alias sshp='function __sshp() { ssh -p $1 $2@$h1; unset -f __sshp; }; __sshp'
+
+alias g='grep'
+alias d='docker'
+alias v='vagrant'
+alias vs='vagrant status'
+
+alias lc='function __lc() { node /Users/enes.usta/projects/consumer-lag-checker-cli/index.js $1; unset -f __lc; }; __lc'
+
+## gcc
+alias ldd='otool -L'
