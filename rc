@@ -1,18 +1,130 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/enes.usta/.oh-my-zsh"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+#ZSH_THEME="spaceship"
+ZSH_THEME="edvardm"
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias prolog='swipl'
+
 alias dp='docker ps -a'
 alias remove_exited_containers='docker ps -aq -f "status=exited" | xargs docker rm -f'
+alias docker_image_size='docker image inspect $1 --format='{{.Size}}''
+
+
 alias ll='ls -la'
 alias ld='ls -ltr | grep drw'
 alias gp='git push'
 alias gs='git status'
 alias gl='git log | head -11'
+alias git_ignore='curl https://raw.githubusercontent.com/enesusta/maven-basic-base/master/.gitignore?token=AHZZJRTBLOM5WNM6C5LD2KLBV7HEW --output .gitignore'
 alias ys='yarn start'
 alias gf='git add . && git commit -m \"Update\" && git push'
 alias nr='node `ls -1v *.js | tail -1`'
 alias nodrun='nodemon `ls -1v *.js | tail -1`'
+alias code="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
 
 ## git
 alias gr='git checkout develop && git reset --hard && git pull'
 alias sb='function __sb() { git checkout -b feature/IND-$1; unset -f __sb; }; __sb'
+
+## devops
+alias orthorecta='ssh root@142.93.165.228'
+alias ssh1='ssh phield@192.168.1.32'
 
 ## mvn
 alias qs='mvn clean quarkus:dev'
@@ -21,6 +133,16 @@ alias ssp='mvn clean --enable-preview spring-boot:run'
 alias mw='mvn -version'
 alias mvc='mvn org.apache.maven.plugins:maven-archetype-plugin:3.1.2:generate -DarchetypeArtifactId="maven-archetype-quickstart" -DarchetypeGroupId="org.apache.maven.archetypes" -DarchetypeVersion="1.4"'
 
+## temperature
+alias temp='sudo powermetrics --samplers smc |grep -i "CPU die temperature"'
+
+## scala
+alias st='sbt clean test'
+
+
+## go
+alias cdgo='cd ~/go/src/github.com/enesusta';
+alias cdgot='cd ~/go/src/gitlab.trendyol.com';
 
 ## find alias
 alias fj='function __grep() { echo "Hosgeldin $USER! yolladigin parametre: $1"; grep -r --include "*.java" "$1" .; unset -f __grep; }; __grep'
@@ -48,6 +170,8 @@ alias scala212='sdk use scala 2.12.13'
 alias mp='mvn clean package'
 alias mt='mvn clean test'
 
+export h1=192.168.0.15
+
 ## curl
 alias curld='function __curld() { curl $1 --output $2; unset -f __curld; }; __curld'
 
@@ -61,12 +185,45 @@ alias kex='function __kg() { kubectl exec -it $1 bash; unset -f __kg; }; __kg'
 alias kexec='function __kg() { kubectl exec -it $1 $2; unset -f __kg; }; __kg'
 alias sshp='function __sshp() { ssh -p $1 $2@$h1; unset -f __sshp; }; __sshp'
 
+GPG_TTY=$(tty)
+export GPG_TTY
+
+## mkdocs
+alias note='mkdocs serve'
+
+export IS_INTERNATIONAL=false
+export TOKEN=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
+
+source /Users/enes.usta/.sdkman/bin/sdkman-init.sh
+export PATH="/usr/local/opt/scala@2.12/bin:$PATH"
+export PATH="/usr/local/opt/node@12/bin:$PATH"
+export PATH="/usr/local/bin/kubectl:$PATH"
+export PATH="/usr/local/bin/yarn:$PATH"
+export GOPATH=/Users/enes.usta/go
+export GATEK_PATH=/Users/enes.usta/gatek
+export PATH=$GOPATH/bin:$PATH
+export PATH=$GATEK_PATH:$PATH
+#/Users/enes.usta/projects/consumer-lag-checker-cli
+
+export MAVEN_OPTS=""
+
 alias g='grep'
 alias d='docker'
-alias v='vagrant'
-alias vs='vagrant status'
 
+alias base='function __base() { echo $(basename $(pwd)); unset -f __base; }; __base'
+alias not='function __not() { git clone https://github.com/enesusta/notes-base $1; unset -f __not; }; __not'
+
+## kafka
 alias lc='function __lc() { node /Users/enes.usta/projects/consumer-lag-checker-cli/index.js $1; unset -f __lc; }; __lc'
 
 ## gcc
 alias ldd='otool -L'
+
+## cs-cx
+alias as='npm run start:staging'
+
+## acme-aliases
+alias ays='yarn start:staging'
+alias acmegitdiff='git diff -- . \':!package-lock.json\' \':!yarn.lock\''
+
+
