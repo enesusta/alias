@@ -31,13 +31,7 @@ alias cdgo='cd ~/go/src/github.com/enesusta';
 alias pip=pip3
 alias py=python3
 alias curld='function __curld() { curl $1 --output $2; unset -f __curld; }; __curld'
-alias ctx='kubectx'
-alias k='kubectl'
-alias ns='kubens'
-alias kg='function __kg() { kubectl get pods | grep $1; unset -f __kg; }; __kg'
-alias kl='function __kl() { kubectl logs $1 $(basename $(pwd)); unset -f __kl; }; __kl'
-alias kex='function __kg() { kubectl exec -it $1 bash; unset -f __kg; }; __kg'
-alias kexec='function __kg() { kubectl exec -it $1 $2; unset -f __kg; }; __kg'
+
 alias sshp='function __sshp() { ssh -p $1 $2@$h1; unset -f __sshp; }; __sshp'
 alias note='mkdocs serve'
 alias g='grep'
@@ -91,3 +85,16 @@ alias local_dump='function __local_dump() { cat restart-local-env-mongo-db-with-
 alias cc='function __cc() { node /Users/enesusta/projects/teamflect-i18n-key-converter $1 | pbcopy; unset -f __cc; }; __cc'
 alias jd='./executables/jd'
 
+
+
+
+alias ctx='kubectx'
+alias k='kubectl'
+alias ns='kubens'
+alias kp='function __kp() { kubectl get pods; unset -f __kp; }; __kp'
+alias kd='function __kd() { kubectl get deployments; unset -f __kd; }; __kd'
+alias kpg='function __kpg() { kubectl get pods | grep $1; unset -f __kpg; }; __kpg'
+alias kdg='function __kdg() { kubectl get pods | grep $1; unset -f __kdg; }; __kdg'
+alias kl='function __kl() { kubectl logs $1 $(basename $(pwd)); unset -f __kl; }; __kl'
+alias kex='function __kg() { kubectl exec -it $1 bash; unset -f __kg; }; __kg'
+alias kexec='function __kg() { kubectl exec -it $1 $2; unset -f __kg; }; __kg'
