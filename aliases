@@ -96,3 +96,6 @@ alias kdg='function __kdg() { kubectl get pods | grep $1; unset -f __kdg; }; __k
 alias kl='function __kl() { kubectl logs $1 $(basename $(pwd)); unset -f __kl; }; __kl'
 alias kex='function __kg() { kubectl exec -it $1 bash; unset -f __kg; }; __kg'
 alias kexec='function __kg() { kubectl exec -it $1 $2; unset -f __kg; }; __kg'
+
+
+alias scan_net='function __scan_net { arp-scan --interface=en0 192.168.1.1/24; unset -f __scan_net; }; __scan_net'
